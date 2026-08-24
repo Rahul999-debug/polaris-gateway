@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { demoAccounts } from "@/features/auth/session";
+import { demoAccounts, authenticateUser, registerUser } from "@/features/auth/session";
 import { useSession } from "@/features/auth/useSession";
 
 const title = "Sign in | India Polar Science Portal";
@@ -33,6 +33,15 @@ function AuthPage() {
   const { signIn, user } = useSession();
   const navigate = useNavigate();
   const [pending, setPending] = useState(false);
+
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const [rname, setRname] = useState("");
+  const [remail, setRemail] = useState("");
+  const [rpassword, setRpassword] = useState("");
+  const [rinst, setRinst] = useState("");
+  const [rorcid, setRorcid] = useState("");
 
   function useDemoAccount(index: number) {
     const account = demoAccounts[index]!;
@@ -64,10 +73,16 @@ function AuthPage() {
                 onSubmit={(e) => {
                   e.preventDefault();
                   setPending(true);
-                  toast.info("Credential sign-in requires the API", {
-                    description:
-                      "Attach the Express auth service (POLAR_API_URL) to exchange credentials for a JWT. Use a demo role below to explore the UI.",
-                  });
+                  const sessionUser = authenticateUser(loginEmail, loginPassword);
+                  if (sessionUser) {
+                    signIn(sessionUser);
+                    toast.success(`Signed in successfully as ${sessionUser.name}`);
+                    void navigate({ to: sessionUser.role === "admin" ? "/admin" : "/dashboard" });
+                  } else {
+                    toast.error("Invalid credentials.", {
+                      description: "Please check your email and password, or register an account."
+                    });
+                  }
                   setPending(false);
                 }}
               >
@@ -80,6 +95,8 @@ function AuthPage() {
                     required
                     className="mt-1.5"
                     placeholder="name@institution.res.in"
+                    value={loginEmail}
+                    onChange={(e) => setLoginEmail(e.target.value)}
                   />
                 </div>
                 <div>
@@ -90,6 +107,8 @@ function AuthPage() {
                     autoComplete="current-password"
                     required
                     className="mt-1.5"
+                    value={loginPassword}
+                    onChange={(e) => setLoginPassword(e.target.value)}
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={pending}>
@@ -107,27 +126,52 @@ function AuthPage() {
                 className="space-y-4 rounded-xl border border-border bg-card p-6"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  toast.success("Registration request recorded (demo)", {
-                    description: "A curator verifies institutional affiliation before activation.",
+                  const success = registerUser({
+                    id: `u-${Date.now()}`,
+                    name: rname,
+                    email: remail,
+                    password: rpassword,
+                    institution: rinst,
+                    orcid: rorcid,
+                    role: "researcher" // default role for new signups
                   });
+
+                  if (success) {
+                    toast.success("Registration successful!", {
+                      description: "You can now sign in with your email and password.",
+                    });
+                    setRname("");
+                    setRemail("");
+                    setRpassword("");
+                    setRinst("");
+                    setRorcid("");
+                  } else {
+                    toast.error("Registration failed.", {
+                      description: "An account with this email already exists.",
+                    });
+                  }
                 }}
               >
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <Label htmlFor="rname">Full name</Label>
-                    <Input id="rname" required className="mt-1.5" />
+                    <Input id="rname" required className="mt-1.5" value={rname} onChange={e => setRname(e.target.value)} />
                   </div>
                   <div>
                     <Label htmlFor="remail">Institutional email</Label>
-                    <Input id="remail" type="email" required className="mt-1.5" />
+                    <Input id="remail" type="email" required className="mt-1.5" value={remail} onChange={e => setRemail(e.target.value)} />
+                  </div>
+                  <div>
+                    <Label htmlFor="rpassword">Password</Label>
+                    <Input id="rpassword" type="password" required className="mt-1.5" value={rpassword} onChange={e => setRpassword(e.target.value)} />
                   </div>
                   <div>
                     <Label htmlFor="rinst">Institution</Label>
-                    <Input id="rinst" required className="mt-1.5" />
+                    <Input id="rinst" required className="mt-1.5" value={rinst} onChange={e => setRinst(e.target.value)} />
                   </div>
-                  <div>
+                  <div className="sm:col-span-2">
                     <Label htmlFor="orcid">ORCID (optional)</Label>
-                    <Input id="orcid" className="mt-1.5" placeholder="0000-0000-0000-0000" />
+                    <Input id="orcid" className="mt-1.5" placeholder="0000-0000-0000-0000" value={rorcid} onChange={e => setRorcid(e.target.value)} />
                   </div>
                 </div>
                 <Button type="submit" className="w-full">

@@ -96,3 +96,39 @@ export function writeSession(user: SessionUser | null) {
   else window.localStorage.removeItem(STORAGE_KEY);
   window.dispatchEvent(new Event("moes-session-change"));
 }
+
+// User registration & authentication logic using localStorage for demo purposes
+
+const USERS_STORAGE_KEY = "moes-polar-users";
+
+export function getRegisteredUsers(): any[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(USERS_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+export function registerUser(user: any): boolean {
+  const users = getRegisteredUsers();
+  if (users.find(u => u.email === user.email)) {
+    return false; // Email already registered
+  }
+  users.push(user);
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
+  }
+  return true;
+}
+
+export function authenticateUser(email: string, password: string): SessionUser | null {
+  const users = getRegisteredUsers();
+  const user = users.find(u => u.email === email && u.password === password);
+  if (user) {
+    const { password: _, ...sessionData } = user;
+    return sessionData as SessionUser;
+  }
+  return null;
+}
