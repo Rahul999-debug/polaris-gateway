@@ -84,7 +84,12 @@ export const datasets: Dataset[] = [
         sizeMb: 3.2,
         checksum: "sha256:1fa77e…4b12",
       },
-      { name: "readme_and_qc_notes.pdf", format: "PDF", sizeMb: 1.1, checksum: "sha256:9c0d3a…77ef" },
+      {
+        name: "readme_and_qc_notes.pdf",
+        format: "PDF",
+        sizeMb: 1.1,
+        checksum: "sha256:9c0d3a…77ef",
+      },
     ],
   },
   {
@@ -111,7 +116,12 @@ export const datasets: Dataset[] = [
     variables: ["delta_18O", "delta_D", "rBC_concentration", "density", "depth", "annual_layer_id"],
     files: [
       { name: "pc4403_isotopes.csv", format: "CSV", sizeMb: 6.4, checksum: "sha256:44de91…0a55" },
-      { name: "pc4403_density_profile.csv", format: "CSV", sizeMb: 0.8, checksum: "sha256:ba21c7…9910" },
+      {
+        name: "pc4403_density_profile.csv",
+        format: "CSV",
+        sizeMb: 0.8,
+        checksum: "sha256:ba21c7…9910",
+      },
       {
         name: "pc4403_methods.pdf",
         format: "PDF",
@@ -143,8 +153,18 @@ export const datasets: Dataset[] = [
       "Daily position solutions for twelve bedrock benchmarks processed in the ITRF2020 reference frame, with vertical rate estimates and formal uncertainties. Suitable for constraining regional GIA models and for correcting satellite gravimetry mass-balance estimates.",
     variables: ["east_mm", "north_mm", "up_mm", "sigma_up", "station_id"],
     files: [
-      { name: "qml_gnss_daily_itrf2020.zip", format: "ZIP (SINEX + CSV)", sizeMb: 88.3, checksum: "sha256:c2f80b…6ad4" },
-      { name: "vertical_rates_summary.csv", format: "CSV", sizeMb: 0.1, checksum: "sha256:e91a44…2b70" },
+      {
+        name: "qml_gnss_daily_itrf2020.zip",
+        format: "ZIP (SINEX + CSV)",
+        sizeMb: 88.3,
+        checksum: "sha256:c2f80b…6ad4",
+      },
+      {
+        name: "vertical_rates_summary.csv",
+        format: "CSV",
+        sizeMb: 0.1,
+        checksum: "sha256:e91a44…2b70",
+      },
     ],
   },
   {
@@ -168,9 +188,21 @@ export const datasets: Dataset[] = [
     version: "v1.2",
     abstract:
       "Sixty-two CTD casts along a nine-station inner-to-outer fjord transect, capturing surface freshening from glacial discharge and the sub-surface signature of Atlantic Water inflow. Salinity calibrated against bottle samples; oxygen sensor drift corrected per cast series.",
-    variables: ["pressure", "temperature", "salinity", "dissolved_oxygen", "turbidity", "fluorescence"],
+    variables: [
+      "pressure",
+      "temperature",
+      "salinity",
+      "dissolved_oxygen",
+      "turbidity",
+      "fluorescence",
+    ],
     files: [
-      { name: "kongsfjorden_ctd_2025.nc", format: "NetCDF-4", sizeMb: 47.9, checksum: "sha256:5a7b19…c30f" },
+      {
+        name: "kongsfjorden_ctd_2025.nc",
+        format: "NetCDF-4",
+        sizeMb: 47.9,
+        checksum: "sha256:5a7b19…c30f",
+      },
       { name: "station_metadata.csv", format: "CSV", sizeMb: 0.2, checksum: "sha256:3311ba…ff09" },
     ],
   },
@@ -197,8 +229,18 @@ export const datasets: Dataset[] = [
       "Hourly equivalent black carbon mass concentrations from a seven-wavelength aethalometer with loading correction, plus nephelometer scattering coefficients and derived Ångström exponents. Includes flags for local pollution from settlement activity and vessel traffic.",
     variables: ["eBC_ng_m3", "babs_370_950nm", "scattering_coefficient", "angstrom_exponent"],
     files: [
-      { name: "himadri_ebc_hourly_2025.csv", format: "CSV", sizeMb: 12.7, checksum: "sha256:66d0aa…1e83" },
-      { name: "local_pollution_flags.csv", format: "CSV", sizeMb: 0.9, checksum: "sha256:aa4f02…7c51" },
+      {
+        name: "himadri_ebc_hourly_2025.csv",
+        format: "CSV",
+        sizeMb: 12.7,
+        checksum: "sha256:66d0aa…1e83",
+      },
+      {
+        name: "local_pollution_flags.csv",
+        format: "CSV",
+        sizeMb: 0.9,
+        checksum: "sha256:aa4f02…7c51",
+      },
     ],
   },
   {
@@ -225,7 +267,12 @@ export const datasets: Dataset[] = [
     variables: ["asv_counts", "taxonomy", "ph", "conductivity", "dissolved_organic_carbon"],
     files: [
       { name: "asv_table_vb2025.tsv", format: "TSV", sizeMb: 18.2, checksum: "sha256:d17f6c…8b40" },
-      { name: "sample_physicochemistry.csv", format: "CSV", sizeMb: 0.4, checksum: "sha256:920fbb…5512" },
+      {
+        name: "sample_physicochemistry.csv",
+        format: "CSV",
+        sizeMb: 0.4,
+        checksum: "sha256:920fbb…5512",
+      },
     ],
   },
   {
@@ -249,17 +296,37 @@ export const datasets: Dataset[] = [
     version: "v3.0",
     abstract:
       "Twenty-six full-depth CTD-rosette stations with dissolved inorganic carbon, total alkalinity, nutrients and dissolved oxygen from bottle samples. Frontal positions for the Subtropical, Subantarctic and Polar Fronts are identified from the underway thermosalinograph and gridded section fields.",
-    variables: ["temperature", "salinity", "oxygen", "nitrate", "silicate", "phosphate", "DIC", "alkalinity"],
+    variables: [
+      "temperature",
+      "salinity",
+      "oxygen",
+      "nitrate",
+      "silicate",
+      "phosphate",
+      "DIC",
+      "alkalinity",
+    ],
     files: [
-      { name: "so57e_ctd_fulldepth.nc", format: "NetCDF-4", sizeMb: 322.5, checksum: "sha256:71bd08…ac67" },
+      {
+        name: "so57e_ctd_fulldepth.nc",
+        format: "NetCDF-4",
+        sizeMb: 322.5,
+        checksum: "sha256:71bd08…ac67",
+      },
       { name: "so57e_bottle_data.csv", format: "CSV", sizeMb: 4.8, checksum: "sha256:cc19d4…3f28" },
-      { name: "frontal_positions.geojson", format: "GeoJSON", sizeMb: 0.3, checksum: "sha256:f0a731…be95" },
+      {
+        name: "frontal_positions.geojson",
+        format: "GeoJSON",
+        sizeMb: 0.3,
+        checksum: "sha256:f0a731…be95",
+      },
     ],
   },
   {
     id: "ds-argo-deployments",
     doi: "10.5281/ncpor.2024.0468",
-    title: "Indian Argo and BGC-Argo float deployment metadata, Indian sector of the Southern Ocean",
+    title:
+      "Indian Argo and BGC-Argo float deployment metadata, Indian sector of the Southern Ocean",
     theme: "Oceanography",
     region: "Southern Ocean — Indian sector",
     expeditionCode: "SOSE-10",
@@ -279,7 +346,12 @@ export const datasets: Dataset[] = [
       "Deployment positions, platform configurations, sensor payloads and first-profile diagnostics for 74 profiling floats released by Indian expeditions, cross-referenced to WMO identifiers for retrieval from the global Argo data system.",
     variables: ["wmo_id", "deployment_lat", "deployment_lon", "platform_type", "sensor_payload"],
     files: [
-      { name: "argo_deployments_india.csv", format: "CSV", sizeMb: 0.6, checksum: "sha256:2b8ce0…7741" },
+      {
+        name: "argo_deployments_india.csv",
+        format: "CSV",
+        sizeMb: 0.6,
+        checksum: "sha256:2b8ce0…7741",
+      },
     ],
   },
   {
@@ -305,8 +377,18 @@ export const datasets: Dataset[] = [
       "Annual and seasonal specific mass balance for four glaciers derived from 112 ablation stakes and 22 accumulation pits, with snow density measurements, stake coordinates and uncertainty estimates propagated by the glaciological method.",
     variables: ["stake_id", "elevation", "ablation_cm", "snow_density", "specific_mass_balance"],
     files: [
-      { name: "chandra_stake_measurements.csv", format: "CSV", sizeMb: 2.9, checksum: "sha256:5510ee…a20b" },
-      { name: "glacier_balance_summary.csv", format: "CSV", sizeMb: 0.1, checksum: "sha256:8def13…c604" },
+      {
+        name: "chandra_stake_measurements.csv",
+        format: "CSV",
+        sizeMb: 2.9,
+        checksum: "sha256:5510ee…a20b",
+      },
+      {
+        name: "glacier_balance_summary.csv",
+        format: "CSV",
+        sizeMb: 0.1,
+        checksum: "sha256:8def13…c604",
+      },
     ],
   },
   {
@@ -332,8 +414,18 @@ export const datasets: Dataset[] = [
       "A 0.15 m digital elevation model and 3.2 cm orthomosaic covering 11.4 km² of the Sutri Dhaka glacier tongue, produced by structure-from-motion from 4,180 UAV frames with 14 GNSS ground control points. Includes an accuracy report and debris-cover classification raster.",
     variables: ["elevation", "orthophoto_rgb", "debris_class"],
     files: [
-      { name: "sutri_dhaka_dem_15cm.tif", format: "GeoTIFF", sizeMb: 1840.0, checksum: "sha256:31c9aa…08fe" },
-      { name: "sutri_dhaka_ortho_3cm.tif", format: "GeoTIFF", sizeMb: 4210.0, checksum: "sha256:7a02bd…dd19" },
+      {
+        name: "sutri_dhaka_dem_15cm.tif",
+        format: "GeoTIFF",
+        sizeMb: 1840.0,
+        checksum: "sha256:31c9aa…08fe",
+      },
+      {
+        name: "sutri_dhaka_ortho_3cm.tif",
+        format: "GeoTIFF",
+        sizeMb: 4210.0,
+        checksum: "sha256:7a02bd…dd19",
+      },
       { name: "accuracy_report.pdf", format: "PDF", sizeMb: 3.6, checksum: "sha256:be5514…1177" },
     ],
   },
@@ -416,9 +508,4 @@ export function searchDatasets(query: DatasetQuery): Dataset[] {
   return results;
 }
 
-export const regionFacets = [
-  "Antarctic",
-  "Arctic",
-  "Southern Ocean",
-  "Himalaya",
-];
+export const regionFacets = ["Antarctic", "Arctic", "Southern Ocean", "Himalaya"];

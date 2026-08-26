@@ -148,7 +148,12 @@ export const modules: LearningModule[] = [
       {
         id: "q3",
         prompt: "A more negative δ18O value in snow generally indicates:",
-        options: ["Warmer condensation temperature", "Colder condensation temperature", "Higher wind speed", "More dust"],
+        options: [
+          "Warmer condensation temperature",
+          "Colder condensation temperature",
+          "Higher wind speed",
+          "More dust",
+        ],
         answerIndex: 1,
         explanation:
           "Heavier isotopes rain out preferentially, so colder condensation leaves precipitation isotopically lighter (more negative).",
@@ -200,7 +205,8 @@ export const modules: LearningModule[] = [
       },
       {
         id: "q2",
-        prompt: "Why must frontal positions be diagnosed before comparing repeat hydrographic sections?",
+        prompt:
+          "Why must frontal positions be diagnosed before comparing repeat hydrographic sections?",
         options: [
           "Fronts affect ship speed",
           "Meridional front migration can be mistaken for a property change",
@@ -213,7 +219,8 @@ export const modules: LearningModule[] = [
       },
       {
         id: "q3",
-        prompt: "What is the main advantage of BGC-Argo floats over ship sections in the Southern Ocean?",
+        prompt:
+          "What is the main advantage of BGC-Argo floats over ship sections in the Southern Ocean?",
         options: [
           "Higher absolute accuracy",
           "Full-depth bottle chemistry",

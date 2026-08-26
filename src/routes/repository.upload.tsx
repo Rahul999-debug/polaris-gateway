@@ -40,9 +40,17 @@ export const Route = createFileRoute("/repository/upload")({
 type Stage = "idle" | "validating" | "presigning" | "uploading" | "queued";
 
 const steps = [
-  { id: 1, label: "Describe the dataset", detail: "Title, abstract, theme, expedition and coverage" },
+  {
+    id: 1,
+    label: "Describe the dataset",
+    detail: "Title, abstract, theme, expedition and coverage",
+  },
   { id: 2, label: "Attach files", detail: "Checksums computed in the browser before upload" },
-  { id: 3, label: "Licence and access", detail: "Choose a licence and access level, accept the policy" },
+  {
+    id: 3,
+    label: "Licence and access",
+    detail: "Choose a licence and access level, accept the policy",
+  },
   { id: 4, label: "Curator review", detail: "Data centre validates metadata, then mints a DOI" },
 ];
 
@@ -201,7 +209,9 @@ function UploadPage() {
             </fieldset>
 
             <fieldset className="space-y-4 rounded-xl border border-border bg-card p-6">
-              <legend className="px-1 font-display text-lg font-semibold">Licence and access</legend>
+              <legend className="px-1 font-display text-lg font-semibold">
+                Licence and access
+              </legend>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <Label htmlFor="licence">Licence</Label>
@@ -210,13 +220,16 @@ function UploadPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      {["CC BY 4.0", "CC BY-NC 4.0", "CC0 1.0", "Government Open Data Licence — India"].map(
-                        (l) => (
-                          <SelectItem key={l} value={l}>
-                            {l}
-                          </SelectItem>
-                        ),
-                      )}
+                      {[
+                        "CC BY 4.0",
+                        "CC BY-NC 4.0",
+                        "CC0 1.0",
+                        "Government Open Data Licence — India",
+                      ].map((l) => (
+                        <SelectItem key={l} value={l}>
+                          {l}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
@@ -237,7 +250,11 @@ function UploadPage() {
                 </div>
               </div>
               <label className="flex items-start gap-3 text-sm">
-                <input type="checkbox" required className="mt-1 size-4 accent-[var(--color-accent)]" />
+                <input
+                  type="checkbox"
+                  required
+                  className="mt-1 size-4 accent-[var(--color-accent)]"
+                />
                 <span>
                   I confirm the data policy applies, that any embargo is within 24 months of the end
                   of the field season, and that personal or location-sensitive information has been

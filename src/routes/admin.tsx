@@ -98,7 +98,9 @@ function AdminLayout() {
             <Outlet />
           ) : (
             <div className="mx-auto max-w-lg rounded-xl border border-border bg-card p-8 text-center">
-              <h2 className="font-display text-xl font-bold">Curator or administrator access required</h2>
+              <h2 className="font-display text-xl font-bold">
+                Curator or administrator access required
+              </h2>
               <p className="mt-3 text-sm text-muted-foreground">
                 This console is protected by role-based access control. Sign in with a curator or
                 admin role to continue; in production the API rejects every request without the

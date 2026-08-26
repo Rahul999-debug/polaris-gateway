@@ -76,8 +76,8 @@ function LearningIndex() {
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
             Modules map to senior-secondary geography and environmental science syllabi. Figures and
             data referenced in each lesson resolve to a citable dataset in the repository, so
-            students can work with the same measurements the scientists used. Quizzes run entirely in
-            the browser and record no personal data.
+            students can work with the same measurements the scientists used. Quizzes run entirely
+            in the browser and record no personal data.
           </p>
         </div>
       </section>

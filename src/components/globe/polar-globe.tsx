@@ -178,7 +178,11 @@ export function PolarGlobe() {
               onClick={() => setSpinning((s) => !s)}
               aria-label={spinning ? "Pause globe rotation" : "Resume globe rotation"}
             >
-              {spinning ? <Pause className="size-4" aria-hidden /> : <Play className="size-4" aria-hidden />}
+              {spinning ? (
+                <Pause className="size-4" aria-hidden />
+              ) : (
+                <Play className="size-4" aria-hidden />
+              )}
             </Button>
           )}
         </div>
@@ -349,7 +353,9 @@ export function PolarGlobe() {
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="font-display text-xl font-semibold">{active.name}</h3>
             <Badge variant="secondary">{active.region}</Badge>
-            {active.established ? <Badge variant="outline">Since {active.established}</Badge> : null}
+            {active.established ? (
+              <Badge variant="outline">Since {active.established}</Badge>
+            ) : null}
           </div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{active.description}</p>
           <dl className="mt-4 grid grid-cols-2 gap-4 text-sm sm:grid-cols-3">

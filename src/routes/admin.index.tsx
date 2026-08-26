@@ -9,15 +9,41 @@ export const Route = createFileRoute("/admin/")({
 });
 
 const auditLog = [
-  { at: "2026-08-22 14:02 IST", actor: "r.das@ncpor.res.in", action: "dataset.publish", target: "ds-cryoconite-16s" },
-  { at: "2026-08-22 11:47 IST", actor: "a.sen@ncpor.res.in", action: "submission.create", target: "sub-2026-041" },
-  { at: "2026-08-21 18:20 IST", actor: "r.das@ncpor.res.in", action: "access-request.approve", target: "req-0912" },
-  { at: "2026-08-21 09:05 IST", actor: "admin@polar.moes.gov.in", action: "user.role.grant", target: "u-curator → curator" },
-  { at: "2026-08-20 16:33 IST", actor: "system", action: "search.index.rebuild", target: "datasets (1,286 docs)" },
+  {
+    at: "2026-08-22 14:02 IST",
+    actor: "r.das@ncpor.res.in",
+    action: "dataset.publish",
+    target: "ds-cryoconite-16s",
+  },
+  {
+    at: "2026-08-22 11:47 IST",
+    actor: "a.sen@ncpor.res.in",
+    action: "submission.create",
+    target: "sub-2026-041",
+  },
+  {
+    at: "2026-08-21 18:20 IST",
+    actor: "r.das@ncpor.res.in",
+    action: "access-request.approve",
+    target: "req-0912",
+  },
+  {
+    at: "2026-08-21 09:05 IST",
+    actor: "admin@polar.moes.gov.in",
+    action: "user.role.grant",
+    target: "u-curator → curator",
+  },
+  {
+    at: "2026-08-20 16:33 IST",
+    actor: "system",
+    action: "search.index.rebuild",
+    target: "datasets (1,286 docs)",
+  },
 ];
 
 function AdminOverview() {
-  const totalGb = datasets.reduce((s, d) => s + d.files.reduce((t, f) => t + f.sizeMb, 0), 0) / 1024;
+  const totalGb =
+    datasets.reduce((s, d) => s + d.files.reduce((t, f) => t + f.sizeMb, 0), 0) / 1024;
 
   return (
     <div className="space-y-8">
@@ -26,7 +52,11 @@ function AdminOverview() {
           { icon: Database, label: "Published datasets", value: "1,286" },
           { icon: Clock, label: "Awaiting review", value: "14" },
           { icon: Users, label: "Active accounts", value: "742" },
-          { icon: HardDrive, label: "Object storage in use", value: `${totalGb.toFixed(1)} GB (demo set)` },
+          {
+            icon: HardDrive,
+            label: "Object storage in use",
+            value: `${totalGb.toFixed(1)} GB (demo set)`,
+          },
         ].map((s) => (
           <div key={s.label} className="rounded-xl border border-border bg-card p-5">
             <s.icon className="size-5 text-accent" aria-hidden />
@@ -58,7 +88,8 @@ function AdminOverview() {
           ))}
         </ul>
         <p className="mt-4 text-xs text-muted-foreground">
-          Status is illustrative until the API health endpoint (<code>/v1/health</code>) is wired up.
+          Status is illustrative until the API health endpoint (<code>/v1/health</code>) is wired
+          up.
         </p>
       </section>
 

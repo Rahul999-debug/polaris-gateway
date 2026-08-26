@@ -63,10 +63,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-display:
-    "Sora", "Segoe UI", system-ui, sans-serif;
-  --font-sans:
-    "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Manrope", "Segoe UI", system-ui, sans-serif;
 }
 
 :root {
@@ -183,7 +181,8 @@
 }
 
 @utility polar-gradient {
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       120% 90% at 12% 8%,
       color-mix(in oklab, var(--color-accent) 34%, transparent) 0%,
       transparent 55%

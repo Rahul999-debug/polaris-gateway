@@ -21,8 +21,12 @@ const initUploadSchema = z.object({
     .string()
     .min(1)
     .max(200)
-    .regex(/^[\w.\-]+$/, "File names may contain letters, numbers, dot, dash and underscore only"),
-  sizeBytes: z.number().int().positive().max(50 * 1024 ** 3),
+    .regex(/^[\w.-]+$/, "File names may contain letters, numbers, dot, dash and underscore only"),
+  sizeBytes: z
+    .number()
+    .int()
+    .positive()
+    .max(50 * 1024 ** 3),
   contentType: z.string().min(3).max(120),
   checksumSha256: z.string().regex(/^[a-f0-9]{64}$/, "Provide a hex SHA-256 digest"),
 });
@@ -51,8 +55,7 @@ export const initDatasetUpload = createServerFn({ method: "POST" })
         uploadUrl: null,
         expiresInSeconds: 0,
         requiredHeaders: {},
-        note:
-          "Object storage is not configured in this environment, so no presigned URL was minted. Set POLAR_API_URL and the S3_* variables to enable real uploads.",
+        note: "Object storage is not configured in this environment, so no presigned URL was minted. Set POLAR_API_URL and the S3_* variables to enable real uploads.",
       };
     }
 

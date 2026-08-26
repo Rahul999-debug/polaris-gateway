@@ -143,8 +143,11 @@ function DatasetDetail() {
                       <div className="min-w-0 flex-1">
                         <p className="truncate font-mono text-sm">{f.name}</p>
                         <p className="text-xs text-muted-foreground">
-                          {f.format} · {f.sizeMb >= 1024 ? `${(f.sizeMb / 1024).toFixed(2)} GB` : `${f.sizeMb} MB`} ·{" "}
-                          {f.checksum}
+                          {f.format} ·{" "}
+                          {f.sizeMb >= 1024
+                            ? `${(f.sizeMb / 1024).toFixed(2)} GB`
+                            : `${f.sizeMb} MB`}{" "}
+                          · {f.checksum}
                         </p>
                       </div>
                       {canDownload ? (

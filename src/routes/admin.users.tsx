@@ -100,8 +100,8 @@ function AdminUsers() {
       <div>
         <h2 className="font-display text-2xl font-bold">Users and roles</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Roles are stored in a dedicated join table, never on the profile record, and every grant is
-          written to the audit log.
+          Roles are stored in a dedicated join table, never on the profile record, and every grant
+          is written to the audit log.
         </p>
       </div>
 
@@ -194,7 +194,10 @@ function AdminUsers() {
       </section>
 
       <div className="flex gap-2">
-        <Button disabled={!isAdmin} onClick={() => toast.info("Invitation flow requires the mail relay")}>
+        <Button
+          disabled={!isAdmin}
+          onClick={() => toast.info("Invitation flow requires the mail relay")}
+        >
           Invite a user
         </Button>
       </div>

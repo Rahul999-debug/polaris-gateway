@@ -62,10 +62,16 @@ function ExpeditionDetail() {
           </nav>
           <div className="mt-4 flex flex-wrap gap-2">
             <Badge className="bg-accent text-accent-foreground">{e.status}</Badge>
-            <Badge variant="outline" className="border-primary-foreground/40 text-primary-foreground">
+            <Badge
+              variant="outline"
+              className="border-primary-foreground/40 text-primary-foreground"
+            >
               {e.region}
             </Badge>
-            <Badge variant="outline" className="border-primary-foreground/40 text-primary-foreground">
+            <Badge
+              variant="outline"
+              className="border-primary-foreground/40 text-primary-foreground"
+            >
               Season {e.season}
             </Badge>
           </div>
@@ -83,7 +89,9 @@ function ExpeditionDetail() {
             { label: "Participants", value: String(e.participants) },
           ].map((item) => (
             <div key={item.label}>
-              <dt className="text-xs uppercase tracking-wide text-muted-foreground">{item.label}</dt>
+              <dt className="text-xs uppercase tracking-wide text-muted-foreground">
+                {item.label}
+              </dt>
               <dd className="mt-1 text-sm font-medium">{item.value}</dd>
             </div>
           ))}

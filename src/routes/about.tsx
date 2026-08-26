@@ -63,8 +63,8 @@ function About() {
                 analyses stay reproducible.
               </li>
               <li>
-                Restricted datasets are released through a reviewed access request, with the decision
-                and its rationale recorded in the audit log.
+                Restricted datasets are released through a reviewed access request, with the
+                decision and its rationale recorded in the audit log.
               </li>
             </ul>
           </div>

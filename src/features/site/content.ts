@@ -1,8 +1,8 @@
 export const site = {
-  name: "India Polar Science Portal",
+  name: "Polar Science Portal",
   ministry: "Ministry of Earth Sciences, Government of India",
   operator: "National Centre for Polar and Ocean Research (NCPOR), Goa",
-  tagline: "India's open window on the Antarctic, the Arctic, the Southern Ocean and the third pole",
+  tagline: "Indian Polar Research Archive",
   established: 1981,
 };
 
@@ -57,16 +57,41 @@ export const researchThemes = [
 ];
 
 export const timeline = [
-  { year: "1981", event: "First Indian Scientific Expedition to Antarctica departs for Queen Maud Land." },
-  { year: "1983", event: "India accedes to the Antarctic Treaty and attains Consultative Party status; Dakshin Gangotri established." },
+  {
+    year: "1981",
+    event: "First Indian Scientific Expedition to Antarctica departs for Queen Maud Land.",
+  },
+  {
+    year: "1983",
+    event:
+      "India accedes to the Antarctic Treaty and attains Consultative Party status; Dakshin Gangotri established.",
+  },
   { year: "1989", event: "Maitri station commissioned on the Schirmacher Oasis." },
-  { year: "1998", event: "NCPOR (then NCAOR) established at Goa as the nodal polar research institution." },
-  { year: "2008", event: "Himadri station opens at Ny-Ålesund, beginning sustained Indian Arctic research." },
+  {
+    year: "1998",
+    event: "NCPOR (then NCAOR) established at Goa as the nodal polar research institution.",
+  },
+  {
+    year: "2008",
+    event: "Himadri station opens at Ny-Ålesund, beginning sustained Indian Arctic research.",
+  },
   { year: "2012", event: "Bharati station commissioned at Larsemann Hills, East Antarctica." },
   { year: "2014", event: "IndARC sub-surface mooring deployed in Kongsfjorden." },
-  { year: "2016", event: "HIMANSH high-altitude station established in Spiti Valley for Himalayan cryosphere work." },
-  { year: "2022", event: "The Indian Antarctic Act comes into force, codifying Treaty obligations in domestic law." },
-  { year: "2025", event: "Polar Science Portal launched as the single open access point for expedition data and outreach." },
+  {
+    year: "2016",
+    event:
+      "HIMANSH high-altitude station established in Spiti Valley for Himalayan cryosphere work.",
+  },
+  {
+    year: "2022",
+    event:
+      "The Indian Antarctic Act comes into force, codifying Treaty obligations in domestic law.",
+  },
+  {
+    year: "2025",
+    event:
+      "Polar Science Portal launched as the single open access point for expedition data and outreach.",
+  },
 ];
 
 export const publications = [

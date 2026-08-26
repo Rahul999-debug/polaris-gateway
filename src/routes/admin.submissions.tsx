@@ -145,7 +145,9 @@ function AdminSubmissions() {
           <p className="mt-1 text-sm text-muted-foreground">{active.title}</p>
           <ul className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
             <li>Metadata schema validation: passed</li>
-            <li>Checksum verification: {active.files} of {active.files} files matched</li>
+            <li>
+              Checksum verification: {active.files} of {active.files} files matched
+            </li>
             <li>Licence: CC BY 4.0 — compatible with the data policy</li>
             <li>Embargo: none requested</li>
           </ul>
@@ -154,12 +156,18 @@ function AdminSubmissions() {
           </label>
           <Textarea id="note" rows={3} className="mt-1.5" placeholder="Optional note…" />
           <div className="mt-4 flex flex-wrap gap-2">
-            <Button onClick={() => decide(active.id, "published", `Published ${active.id} and minted a DOI`)}>
+            <Button
+              onClick={() =>
+                decide(active.id, "published", `Published ${active.id} and minted a DOI`)
+              }
+            >
               Approve and publish
             </Button>
             <Button
               variant="outline"
-              onClick={() => decide(active.id, "changes requested", `Changes requested on ${active.id}`)}
+              onClick={() =>
+                decide(active.id, "changes requested", `Changes requested on ${active.id}`)
+              }
             >
               Request changes
             </Button>

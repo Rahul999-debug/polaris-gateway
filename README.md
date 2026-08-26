@@ -28,11 +28,11 @@ The **Polar Science Portal** connects India's polar science research, public out
 
 ## 🎯 Core Objectives
 
-| Pillar | Purpose | Highlights |
-|---|---|---|
-| 🌐 **Outreach** | Educate the public & students on India's polar expeditions | Interactive 3D globe, station maps, gamified learning modules |
-| 📚 **Knowledge Repository** | Centralized searchable research database | Full-text search, geospatial metadata, secure document access |
-| 🎥 **Media Dissemination** | Organize and stream polar multimedia | Galleries, documentaries, press releases, live station feeds |
+| Pillar                      | Purpose                                                    | Highlights                                                    |
+| --------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
+| 🌐 **Outreach**             | Educate the public & students on India's polar expeditions | Interactive 3D globe, station maps, gamified learning modules |
+| 📚 **Knowledge Repository** | Centralized searchable research database                   | Full-text search, geospatial metadata, secure document access |
+| 🎥 **Media Dissemination**  | Organize and stream polar multimedia                       | Galleries, documentaries, press releases, live station feeds  |
 
 ---
 
@@ -55,7 +55,7 @@ The **Polar Science Portal** connects India's polar science research, public out
 ```mermaid
 flowchart TD
     subgraph Users
-        A[Public] 
+        A[Public]
         B[Students]
         C[Educators]
         D[Researchers]
@@ -92,16 +92,16 @@ flowchart TD
 
 ## 🧰 Tech Stack
 
-| Layer | Technology | Why |
-|---|---|---|
-| **Frontend** | Next.js 14 (App Router) + Tailwind CSS | SSR for SEO, fast responsive UI |
-| **3D / Maps** | Three.js, `@react-three/fiber`, Mapbox GL JS | Interactive globe & geospatial visualization |
-| **Backend** | Node.js + Express.js | Scalable REST APIs, auth, high concurrency |
-| **Scientific Layer** | Python + FastAPI *(optional)* | Geospatial data processing, future AI/ML modules |
-| **Database** | PostgreSQL 15 | Reliable structured storage |
-| **Search Engine** | Meilisearch | Fast full-text search across the repository |
-| **Media Storage** | AWS S3 / Cloudinary | Scalable object storage for PDFs, images, video |
-| **CDN** | Cloudflare / AWS CloudFront | Global low-latency content delivery |
+| Layer                | Technology                                   | Why                                              |
+| -------------------- | -------------------------------------------- | ------------------------------------------------ |
+| **Frontend**         | Next.js 14 (App Router) + Tailwind CSS       | SSR for SEO, fast responsive UI                  |
+| **3D / Maps**        | Three.js, `@react-three/fiber`, Mapbox GL JS | Interactive globe & geospatial visualization     |
+| **Backend**          | Node.js + Express.js                         | Scalable REST APIs, auth, high concurrency       |
+| **Scientific Layer** | Python + FastAPI _(optional)_                | Geospatial data processing, future AI/ML modules |
+| **Database**         | PostgreSQL 15                                | Reliable structured storage                      |
+| **Search Engine**    | Meilisearch                                  | Fast full-text search across the repository      |
+| **Media Storage**    | AWS S3 / Cloudinary                          | Scalable object storage for PDFs, images, video  |
+| **CDN**              | Cloudflare / AWS CloudFront                  | Global low-latency content delivery              |
 
 ---
 
@@ -140,18 +140,19 @@ flowchart TD
 
 ## 🔐 Roles & Permissions
 
-| Role | Access |
-|---|---|
-| **Public** | Browse & search public content, read-only |
-| **Researcher** | Upload datasets/papers, access gated downloads |
-| **Educator** | Access learning modules & classroom tools |
-| **Admin** | Full content management, moderation, publishing, analytics |
+| Role           | Access                                                     |
+| -------------- | ---------------------------------------------------------- |
+| **Public**     | Browse & search public content, read-only                  |
+| **Researcher** | Upload datasets/papers, access gated downloads             |
+| **Educator**   | Access learning modules & classroom tools                  |
+| **Admin**      | Full content management, moderation, publishing, analytics |
 
 ---
 
 ## ⚙️ Getting Started
 
 ### Prerequisites
+
 - Node.js ≥ 18
 - Docker & Docker Compose (recommended for local PostgreSQL + Meilisearch)
 - AWS S3 bucket (or Cloudinary account)

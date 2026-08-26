@@ -79,7 +79,10 @@ function Quiz({ module }: { module: LearningModule }) {
                           !submitted && isChosen && "border-accent bg-accent/10",
                           !submitted && !isChosen && "border-border hover:bg-secondary/50",
                           submitted && isCorrect && "border-success bg-success/10",
-                          submitted && isChosen && !isCorrect && "border-destructive bg-destructive/10",
+                          submitted &&
+                            isChosen &&
+                            !isCorrect &&
+                            "border-destructive bg-destructive/10",
                           submitted && !isChosen && !isCorrect && "border-border opacity-70",
                         )}
                       >
@@ -93,10 +96,16 @@ function Quiz({ module }: { module: LearningModule }) {
                         />
                         <span>{opt}</span>
                         {submitted && isCorrect && (
-                          <CheckCircle2 className="ml-auto size-4 shrink-0 text-success" aria-label="Correct answer" />
+                          <CheckCircle2
+                            className="ml-auto size-4 shrink-0 text-success"
+                            aria-label="Correct answer"
+                          />
                         )}
                         {submitted && isChosen && !isCorrect && (
-                          <XCircle className="ml-auto size-4 shrink-0 text-destructive" aria-label="Your answer, incorrect" />
+                          <XCircle
+                            className="ml-auto size-4 shrink-0 text-destructive"
+                            aria-label="Your answer, incorrect"
+                          />
                         )}
                       </label>
                     );
@@ -158,10 +167,16 @@ function ModulePage() {
           <p className="mt-4 text-primary-foreground/85">{module.summary}</p>
           <div className="mt-5 flex flex-wrap gap-2">
             <Badge className="bg-accent text-accent-foreground">{module.level}</Badge>
-            <Badge variant="outline" className="border-primary-foreground/40 text-primary-foreground">
+            <Badge
+              variant="outline"
+              className="border-primary-foreground/40 text-primary-foreground"
+            >
               {module.minutes} min read
             </Badge>
-            <Badge variant="outline" className="border-primary-foreground/40 text-primary-foreground">
+            <Badge
+              variant="outline"
+              className="border-primary-foreground/40 text-primary-foreground"
+            >
               {module.audience}
             </Badge>
           </div>
@@ -169,7 +184,10 @@ function ModulePage() {
       </section>
 
       <article className="mx-auto max-w-4xl px-4 py-12">
-        <nav aria-label="Module contents" className="rounded-xl border border-border bg-muted/40 p-5">
+        <nav
+          aria-label="Module contents"
+          className="rounded-xl border border-border bg-muted/40 p-5"
+        >
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             In this module
           </h2>

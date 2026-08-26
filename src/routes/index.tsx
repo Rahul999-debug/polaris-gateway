@@ -48,7 +48,11 @@ function Home() {
               {site.ministry}.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button
+                asChild
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
+              >
                 <Link to="/repository">
                   Search the data repository
                   <ArrowRight className="ml-2 size-4" aria-hidden />
@@ -147,7 +151,9 @@ function Home() {
             {researchThemes.map((t) => (
               <article key={t.title} className="rounded-xl border border-border bg-card p-5">
                 <h3 className="font-display text-lg font-semibold">{t.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {t.description}
+                </p>
               </article>
             ))}
           </div>
@@ -221,9 +227,7 @@ function Home() {
                         {e.status === "ongoing" ? "Ongoing" : "Planned"} · {e.season}
                       </span>
                       <span className="mt-1 block text-sm font-semibold">{e.title}</span>
-                      <span className="mt-1 block text-xs text-muted-foreground">
-                        {e.basecamp}
-                      </span>
+                      <span className="mt-1 block text-xs text-muted-foreground">{e.basecamp}</span>
                     </Link>
                   </li>
                 ))}
@@ -236,10 +240,12 @@ function Home() {
       <section className="border-t border-border bg-primary text-primary-foreground">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-14 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="font-display text-2xl font-bold">Teach polar science with our modules</h2>
+            <h2 className="font-display text-2xl font-bold">
+              Teach polar science with our modules
+            </h2>
             <p className="mt-2 max-w-xl text-primary-foreground/85">
-              {modules.length} peer-reviewed modules with quizzes, from "Why India studies the poles"
-              to Southern Ocean carbon accounting.
+              {modules.length} peer-reviewed modules with quizzes, from "Why India studies the
+              poles" to Southern Ocean carbon accounting.
             </p>
           </div>
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">

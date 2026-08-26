@@ -132,7 +132,10 @@ function RepositoryIndex() {
             </div>
           </div>
 
-          <div id="facets" className={showFilters ? "mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5" : "hidden"}>
+          <div
+            id="facets"
+            className={showFilters ? "mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-5" : "hidden"}
+          >
             <div>
               <Label htmlFor="theme">Theme</Label>
               <Select value={query.theme ?? "all"} onValueChange={(v) => set("theme", v)}>

@@ -77,21 +77,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Polar Science Portal" },
+      {
+        name: "description",
+        content:
+          "A multimedia research archive for exploring polar expeditions, field observations, scientific imagery, recordings, and research documentation.",
+      },
+      { name: "author", content: "Polar Science Portal" },
+      { property: "og:title", content: "Polar Science Portal" },
+      {
+        property: "og:description",
+        content:
+          "A multimedia research archive for exploring polar expeditions, field observations, scientific imagery, recordings, and research documentation.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@PolarSciencePortal" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "shortcut icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,

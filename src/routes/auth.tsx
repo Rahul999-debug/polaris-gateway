@@ -34,7 +34,7 @@ function AuthPage() {
   const navigate = useNavigate();
   const [pending, setPending] = useState(false);
 
-  function useDemoAccount(index: number) {
+  function signInDemoAccount(index: number) {
     const account = demoAccounts[index]!;
     const { hint: _hint, ...session } = account;
     signIn(session);
@@ -97,8 +97,8 @@ function AuthPage() {
                   Sign in
                 </Button>
                 <p className="text-xs text-muted-foreground">
-                  Sessions use a 15-minute JWT access token and a rotating refresh cookie with
-                  reuse detection. No credentials are stored in the browser.
+                  Sessions use a 15-minute JWT access token and a rotating refresh cookie with reuse
+                  detection. No credentials are stored in the browser.
                 </p>
               </form>
             </TabsContent>
@@ -156,7 +156,7 @@ function AuthPage() {
                     <Badge variant="secondary">{a.role}</Badge>
                   </div>
                   <p className="mt-1 text-xs text-muted-foreground">{a.hint}</p>
-                  <Button size="sm" className="mt-3" onClick={() => useDemoAccount(i)}>
+                  <Button size="sm" className="mt-3" onClick={() => signInDemoAccount(i)}>
                     Continue as {a.role}
                   </Button>
                 </li>
