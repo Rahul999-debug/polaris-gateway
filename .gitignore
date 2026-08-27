@@ -8,6 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+services/scientific-api/venv/
+services/scientific-api/.env
+services/scientific-api/data/
+services/scientific-api/chroma_db/
+__pycache__/
+*.py[cod]
 dist
 dist-ssr
 .output

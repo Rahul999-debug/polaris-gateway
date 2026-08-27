@@ -38,9 +38,14 @@ function ThemeToggle() {
 
 function NavLinks({ onNavigate, vertical }: { onNavigate?: () => void; vertical?: boolean }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { user } = useSession();
   return (
     <ul className={cn("flex gap-1", vertical ? "flex-col" : "items-center")}>
       {primaryNav.map((item) => {
+        // Hide authenticated-only items from unauthenticated users
+        if ("authenticated" in item && item.authenticated && !user) {
+          return null;
+        }
         const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
         return (
           <li key={item.to}>

@@ -156,3 +156,71 @@ CREATE TABLE media_items (
   license     text NOT NULL,
   object_key  text
 );
+
+
+-- Research publications
+--
+-- Stores scholarly publication metadata independently from the
+-- polar dataset repository. A paper may discuss a dataset without
+-- being the dataset itself.
+
+CREATE TABLE research_papers (
+  id                uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+
+  -- External scholarly source
+  source            text NOT NULL,
+  source_id         text,
+
+  -- Persistent scholarly identifier
+  doi               text UNIQUE,
+
+  -- Publication metadata
+  title             text NOT NULL,
+  abstract          text,
+  journal           text,
+  publication_year  integer,
+
+  -- Author information
+  authors           jsonb NOT NULL DEFAULT '[]'::jsonb,
+
+  -- Classification
+  keywords          text[] NOT NULL DEFAULT '{}',
+  theme             text,
+  region            text,
+
+  -- External locations
+  paper_url         text,
+  pdf_url           text,
+
+  -- Whether the full paper is legally available to retrieve
+  open_access       boolean NOT NULL DEFAULT false,
+
+  -- Used later when we build the RAG/Belgica pipeline
+  full_text_indexed boolean NOT NULL DEFAULT false,
+
+  -- Prevent duplicate imports from the same scholarly source
+  UNIQUE (source, source_id),
+
+  created_at        timestamptz NOT NULL DEFAULT now(),
+  updated_at        timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX research_papers_year_idx
+  ON research_papers (publication_year);
+
+CREATE INDEX research_papers_theme_idx
+  ON research_papers (theme);
+
+CREATE INDEX research_papers_region_idx
+  ON research_papers (region);
+
+CREATE INDEX research_papers_search_idx
+  ON research_papers
+  USING gin (
+    to_tsvector(
+      'english',
+      coalesce(title, '') || ' ' ||
+      coalesce(abstract, '') || ' ' ||
+      coalesce(journal, '')
+    )
+  );

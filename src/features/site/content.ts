@@ -12,6 +12,7 @@ export const primaryNav = [
   { to: "/repository", label: "Data repository" },
   { to: "/learning", label: "Learning" },
   { to: "/media", label: "Media" },
+  { to: "/research", label: "Research Library", authenticated: true },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -99,6 +100,294 @@ export const publications = [
     journal: "The Cryosphere",
     year: 2025,
     doi: "10.5194/tc-19-1447-2025",
+  },
+];
+
+// -----------------------------------------------------------------------------
+// Research Paper Library
+// -----------------------------------------------------------------------------
+//
+// This is the initial catalogue used by the Research Library UI.
+//
+// IMPORTANT:
+// These are currently demonstration records only.
+// Later, they will be replaced/extended by records imported from scholarly
+// sources such as OpenAlex and Crossref through the backend.
+//
+// Do NOT put API keys or private credentials in this file.
+//
+
+export type ResearchPaper = {
+  id: string;
+  title: string;
+  authors: string[];
+  journal: string;
+  year: number;
+  doi?: string;
+  abstract: string;
+  keywords: string[];
+  region: string;
+  theme: string;
+  paperUrl?: string;
+  pdfUrl?: string;
+  openAccess: boolean;
+};
+
+export const researchPapers: ResearchPaper[] = [
+  {
+    id: "ice-nucleating-particles-2024",
+
+    title:
+      "Ice-nucleating particles active below −24 °C in a Finnish boreal forest and their relationship to bioaerosols",
+
+    authors: [
+      "Franziska Vogel",
+      "Michael P. Adams",
+      "Larissa Lacher",
+      "Polly B. Foster",
+      "Grace C. E. Porter",
+    ],
+
+    journal: "Atmospheric Chemistry and Physics",
+
+    year: 2024,
+
+    doi: "10.5194/acp-24-11737-2024",
+
+    abstract:
+      "This study investigates ice-nucleating particles in a Finnish boreal forest and examines their relationship with biological aerosol particles. The research contributes to understanding atmospheric processes involved in ice formation.",
+
+    keywords: [
+      "ice-nucleating particles",
+      "bioaerosols",
+      "atmospheric science",
+      "ice formation",
+      "aerosols",
+    ],
+
+    region: "Arctic",
+
+    theme: "Polar atmosphere & aerosols",
+
+    paperUrl:
+      "https://doi.org/10.5194/acp-24-11737-2024",
+
+    pdfUrl:
+      "https://acp.copernicus.org/articles/24/11737/2024/",
+
+    openAccess: true,
+  },
+
+  {
+    id: "antarctic-black-carbon-2019",
+
+    title:
+      "Black carbon in the atmosphere over the Antarctic Peninsula",
+
+    authors: [
+      "A. P. Chaubey",
+      "S. N. Tripathi",
+      "T. A. N. R. others",
+    ],
+
+    journal: "Atmospheric Chemistry and Physics",
+
+    year: 2019,
+
+    abstract:
+      "Research on atmospheric black carbon over Antarctica provides insight into aerosol transport, deposition, radiative effects and the role of long-range transported particles in the polar atmosphere.",
+
+    keywords: [
+      "black carbon",
+      "Antarctica",
+      "aerosols",
+      "atmospheric transport",
+      "radiative effects",
+    ],
+
+    region: "Antarctica",
+
+    theme: "Polar atmosphere & aerosols",
+
+    paperUrl:
+      "https://acp.copernicus.org/",
+
+    openAccess: true,
+  },
+
+  {
+    id: "southern-ocean-carbon-cycle",
+
+    title:
+      "The Southern Ocean carbon cycle: recent advances and future challenges",
+
+    authors: [
+      "Southern Ocean Research Community",
+    ],
+
+    journal: "Southern Ocean scientific literature",
+
+    year: 2024,
+
+    abstract:
+      "Research into the Southern Ocean carbon cycle examines air-sea carbon exchange, ocean circulation, biological productivity and the role of the Southern Ocean in regulating the global climate system.",
+
+    keywords: [
+      "Southern Ocean",
+      "carbon cycle",
+      "oceanography",
+      "air-sea exchange",
+      "climate",
+    ],
+
+    region: "Southern Ocean",
+
+    theme: "Southern Ocean & fjord systems",
+
+    paperUrl:
+      "https://openalex.org/",
+    
+    openAccess: true,
+  },
+
+  {
+    id: "himalayan-glacier-change",
+
+    title:
+      "Himalayan glacier change and the response of the high-mountain cryosphere",
+
+    authors: [
+      "High Mountain Research Community",
+    ],
+
+    journal: "Cryosphere research literature",
+
+    year: 2024,
+
+    abstract:
+      "Studies of Himalayan glaciers investigate glacier mass balance, ice loss, snow accumulation, remote sensing observations and the response of high-mountain cryospheric systems to climate variability.",
+
+    keywords: [
+      "Himalaya",
+      "glacier",
+      "mass balance",
+      "cryosphere",
+      "remote sensing",
+    ],
+
+    region: "Himalaya",
+
+    theme: "Cryosphere & ice-sheet dynamics",
+
+    paperUrl:
+      "https://openalex.org/",
+
+    openAccess: true,
+  },
+
+  {
+    id: "polar-microbial-ecosystems",
+
+    title:
+      "Microbial ecosystems in polar cryoconite and meltwater environments",
+
+    authors: [
+      "Polar Microbiology Research Community",
+    ],
+
+    journal: "Polar biological research literature",
+
+    year: 2024,
+
+    abstract:
+      "Research on microbial communities in cryoconite and meltwater environments explores biodiversity, ecological processes and the ability of microorganisms to survive under extreme polar conditions.",
+
+    keywords: [
+      "polar biology",
+      "microbiology",
+      "cryoconite",
+      "meltwater",
+      "extremophiles",
+    ],
+
+    region: "Antarctica",
+
+    theme: "Polar biology & ecosystems",
+
+    paperUrl:
+      "https://openalex.org/",
+
+    openAccess: true,
+  },
+
+  {
+    id: "antarctic-geophysics",
+
+    title:
+      "Geophysical investigations of the Antarctic continental crust",
+
+    authors: [
+      "Antarctic Geophysics Research Community",
+    ],
+
+    journal: "Antarctic geophysics research literature",
+
+    year: 2024,
+
+    abstract:
+      "Geophysical investigations of Antarctica use geological, geophysical and geodetic observations to study continental crustal evolution, tectonic history and changes associated with the Antarctic ice sheet.",
+
+    keywords: [
+      "Antarctica",
+      "geophysics",
+      "continental crust",
+      "geology",
+      "geodesy",
+    ],
+
+    region: "Antarctica",
+
+    theme: "Geology & solid-earth geophysics",
+
+    paperUrl:
+      "https://openalex.org/",
+
+    openAccess: true,
+  },
+
+  {
+    id: "antarctic-policy-law",
+
+    title:
+      "Antarctic governance, environmental protection and scientific cooperation",
+
+    authors: [
+      "Antarctic Policy Research Community",
+    ],
+
+    journal: "Antarctic policy and governance literature",
+
+    year: 2024,
+
+    abstract:
+      "Research into Antarctic governance examines the Antarctic Treaty System, environmental protection, scientific cooperation, environmental impact assessment and the development of national polar policies.",
+
+    keywords: [
+      "Antarctic Treaty",
+      "policy",
+      "environmental protection",
+      "governance",
+      "scientific cooperation",
+    ],
+
+    region: "Antarctica",
+
+    theme: "Policy, law & capacity building",
+
+    paperUrl:
+      "https://www.ats.aq/",
+
+    openAccess: true,
   },
 ];
 

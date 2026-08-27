@@ -20,15 +20,15 @@ matching server function switches to the live service — see
 
 ## Feature modules
 
-| Path | Responsibility |
-| --- | --- |
-| `src/features/expeditions` | Expedition + station records, coordinates |
-| `src/features/repository` | Dataset catalogue, facets, query engine |
-| `src/features/learning` | Modules, lesson sections, quizzes |
-| `src/features/media` | Media library items and licences |
-| `src/features/auth` | Roles, permission matrix, demo session |
-| `src/components/globe` | Interactive orthographic globe + map fallback |
-| `src/routes` | SSR routes; `/admin/*` is a separate console shell |
+| Path                       | Responsibility                                     |
+| -------------------------- | -------------------------------------------------- |
+| `src/features/expeditions` | Expedition + station records, coordinates          |
+| `src/features/repository`  | Dataset catalogue, facets, query engine            |
+| `src/features/learning`    | Modules, lesson sections, quizzes                  |
+| `src/features/media`       | Media library items and licences                   |
+| `src/features/auth`        | Roles, permission matrix, demo session             |
+| `src/components/globe`     | Interactive orthographic globe + map fallback      |
+| `src/routes`               | SSR routes; `/admin/*` is a separate console shell |
 
 ## Auth and RBAC
 

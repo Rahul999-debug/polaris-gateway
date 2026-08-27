@@ -19,8 +19,8 @@ class PolarisRAGAssistant:
         self.vector_store = None
         self.retriever = None
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-1.5-pro",
-            temperature=0.3,
+            model=os.environ.get("GEMINI_MODEL", "gemini-2.5-flash"),
+            temperature=0.2,
             convert_system_message_to_human=True
         )
         self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
@@ -140,4 +140,153 @@ Answer:"""
             "query": query,
             "answer": answer,
             "sources": sources
+        }
+
+
+    def analyze_abstract(self, paper: dict):
+        """
+        Belgica analyzes only the information that is actually available
+        for a research paper.
+
+        This first version intentionally works with the paper abstract.
+        It does NOT pretend to have read the complete paper.
+        """
+
+        title = paper.get("title", "Unknown title")
+        authors = paper.get("authors", [])
+        journal = paper.get("journal", "Unknown journal")
+        year = paper.get("year", "Unknown year")
+        doi = paper.get("doi")
+        abstract = (paper.get("abstract") or "").strip()
+
+        # Do not let Belgica hallucinate when no abstract exists.
+        if not abstract or abstract.lower() == "abstract unavailable.":
+            return {
+                "analysis_type": "metadata",
+                "answer": (
+                    "Belgica cannot produce a reliable scientific summary "
+                    "because the abstract and full text are not currently "
+                    "available to the analysis service."
+                ),
+                "sources": [],
+                "access_message": (
+                    "Only bibliographic information is available. "
+                    "The complete paper or its abstract must be accessible "
+                    "before Belgica can analyse it."
+                ),
+            }
+
+        author_text = ", ".join(authors)
+
+        paper_context = f"""
+Selected research paper
+
+Title:
+{title}
+
+Authors:
+{author_text}
+
+Journal:
+{journal}
+
+Publication year:
+{year}
+
+DOI:
+{doi or "Not available"}
+
+Abstract:
+{abstract}
+"""
+
+        prompt = f"""
+You are Belgica, the research-literacy AI assistant of the
+India Polar Science Portal.
+
+Your purpose is to help young researchers understand scientific
+literature without sacrificing scientific accuracy.
+
+IMPORTANT EVIDENCE RULES:
+
+1. You are currently given ONLY the paper metadata and abstract.
+2. Do NOT claim that you read the complete paper.
+3. Do NOT invent methodology, numerical results, experiments,
+   datasets, conclusions or limitations that are not supported
+   by the supplied material.
+4. Clearly distinguish the paper's claims from your own explanation.
+5. If something cannot be determined from the abstract, say:
+   "The abstract does not provide enough information to determine this."
+6. Research directions must be labelled as suggestions from Belgica,
+   not statements made by the authors.
+7. Keep important scientific terminology, but explain it in simple words.
+8. Do not oversimplify a scientific claim to the point that it becomes false.
+9. Do not provide fabricated citations or references.
+10. The response must be useful to a young researcher.
+
+Use the following structure:
+
+## In simple terms
+
+Explain the paper in clear language suitable for a young researcher.
+
+## What scientific question is being addressed?
+
+Explain the main research problem or question if it can be established
+from the abstract.
+
+## Why is this important?
+
+Explain the scientific significance supported by the abstract.
+
+## What did the researchers do?
+
+Describe the methodology ONLY to the level supported by the abstract.
+
+## What are the main findings?
+
+List the important findings supported by the abstract.
+
+## Important terms
+
+Define difficult scientific terms that a beginner may not know.
+
+## What can we conclude?
+
+Explain what the available evidence allows us to conclude.
+
+## What is still unknown?
+
+Clearly identify important information that cannot be determined
+because the full paper was not available.
+
+## Possible research directions
+
+Suggest sensible future research questions based ONLY on the available
+information. Clearly label these as Belgica's suggestions.
+
+PAPER INFORMATION:
+{paper_context}
+
+Now produce the explanation.
+"""
+
+        response = self.llm.invoke(prompt)
+
+        # ChatGoogleGenerativeAI returns an AIMessage.
+        answer = getattr(response, "content", str(response))
+
+        if doi:
+            source = f"DOI: {doi}"
+        else:
+            source = "Selected paper metadata and abstract"
+
+        return {
+            "analysis_type": "abstract",
+            "answer": answer,
+            "sources": [source],
+            "access_message": (
+                "This is an abstract-based analysis. "
+                "Belgica has not analyzed the complete paper."
+            ),
         }

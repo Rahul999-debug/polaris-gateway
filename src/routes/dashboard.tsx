@@ -118,10 +118,10 @@ function Dashboard() {
           <div className="flex-1">
             <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">Dashboard</p>
             <h1 className="mt-1 font-display text-3xl font-bold">{user.name}</h1>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <div className="mt-1 text-sm text-muted-foreground">
               {user.institution} · role <Badge variant="secondary">{user.role}</Badge>
               {user.orcid ? ` · ORCID ${user.orcid}` : ""}
-            </p>
+            </div>
           </div>
           <div className="flex gap-2">
             <Button asChild>
